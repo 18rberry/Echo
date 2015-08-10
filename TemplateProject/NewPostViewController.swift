@@ -19,17 +19,53 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
 
     let post = Post()
     
+    @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var postView: UITextView!
     
-    @IBOutlet weak var characterCount: UILabel!
-
     
-    @IBAction func postPressed(sender: AnyObject) {
+    @IBOutlet weak var charRemaining: UILabel!
+
+    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+        if identifier == "addPost" {
+            // perform your computation to determine whether segue should occur
+            
+            if count(self.postView.text) == 0 {
+                let notPermitted = UIAlertView(title: "Alert", message: "Please enter a post", delegate: nil, cancelButtonTitle: "OK")
+                
+                // shows alert to user
+                notPermitted.show()
+                
+                // prevent segue from occurring
+                return false
+            }
+        }
         
+        // by default perform the segue transitio
+        createPost()
+        return true
     }
+    
+//    @IBAction func postPressed(sender: AnyObject) {
+//        if count(self.postView.text) < 1 {
+//            postButton.enabled = !postView.text.isEmpty
+//            postButton.enabled = false
+//            
+//            var alert = UIAlertView(title: "Invalid", message: "Please enter something", delegate: self, cancelButtonTitle: "OK")
+//            alert.show()
+//            
+//        }
+//        
+//        else {
+//        self.performSegueWithIdentifier("addPost", sender: self)
+//        createPost()
+//        }
+//    
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        postView.delegate = self
+        postView.becomeFirstResponder()
     }
     
 //    override func viewWillAppear(animated: Bool) {
@@ -48,8 +84,11 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
 //    }
     
     func createPost(){
-        post.Post = postView.text
+        post.postContent = postView.text
+        post.date = NSDate()
         
+        post.save()
+        post.uploadPost()
     }
     
 
@@ -58,19 +97,22 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        var newLength:Int = (textView.text as NSString).length + (text as NSString).length - range.length
+        var remainingChar:Int = 300 - newLength
+        
+        charRemaining.text = "\(remainingChar)"
+        
+        return (newLength > 300) ? false : true
 
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "addPost" {
+//            var destination = segue.destinationViewController as! TimelineViewController
+//            postView.text = destination.postContent
+//        }
+//    }
+//
+//}
 }

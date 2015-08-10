@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     else {
-        println("here")
+        println("here") 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let loginViewController = CustomLoginViewController()
         var initialViewController = storyboard.instantiateViewControllerWithIdentifier("LoginView") as! UIViewController
