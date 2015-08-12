@@ -76,6 +76,7 @@ class PostTableViewCell: UITableViewCell {
             //Present the AlertController
             timeline!.presentViewController(actionSheetController, animated: true, completion: nil)
             
+            
         }
             
         else  {

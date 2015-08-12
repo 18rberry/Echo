@@ -52,6 +52,7 @@
 		BC54DB4F1B6EDACB00626958 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54DB4E1B6EDACB00626958 /* ParseHelper.swift */; };
 		BC7F9B5D1B72B79B00457D77 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F9B5C1B72B79B00457D77 /* CommentTableViewCell.swift */; };
 		BC7F9B651B72C4F300457D77 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F9B641B72C4F300457D77 /* Reply.swift */; };
+		BCA96B341B7AA89F0053D7BB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA96B331B7AA89F0053D7BB /* TabBarViewController.swift */; };
 		BCAB9A8D1B744BD20060DEAE /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB9A8C1B744BD20060DEAE /* NewCommentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +194,7 @@
 		BC54DB4E1B6EDACB00626958 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		BC7F9B5C1B72B79B00457D77 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		BC7F9B641B72C4F300457D77 /* Reply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reply.swift; path = ../Reply.swift; sourceTree = "<group>"; };
+		BCA96B331B7AA89F0053D7BB /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BCAB9A8C1B744BD20060DEAE /* NewCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -364,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3D17851B5C549000566493 /* TimelineViewController.swift */,
+				BCA96B331B7AA89F0053D7BB /* TabBarViewController.swift */,
 				BCAB9A8C1B744BD20060DEAE /* NewCommentViewController.swift */,
 				BC3D17871B5C54AB00566493 /* NewPostViewController.swift */,
 				BC3D17891B5C54BA00566493 /* SettingsViewController.swift */,
@@ -418,6 +421,7 @@
 				TargetAttributes = {
 					62C8C1DF1B06BD6500DC3EA7 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = HC8H9475D8;
 					};
 				};
 			};
@@ -568,6 +572,7 @@
 				BC3D177C1B5C427C00566493 /* CustomLoginViewController.swift in Sources */,
 				BC7F9B651B72C4F300457D77 /* Reply.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
+				BCA96B341B7AA89F0053D7BB /* TabBarViewController.swift in Sources */,
 				BC3D17861B5C549000566493 /* TimelineViewController.swift in Sources */,
 				BC3D17881B5C54AB00566493 /* NewPostViewController.swift in Sources */,
 				624262C71B4460CB00005CE3 /* ViewController.swift in Sources */,
@@ -703,6 +708,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -712,6 +718,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = TemplateProject;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -724,6 +731,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -733,6 +741,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = TemplateProject;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TemplateProject/TemplateProject-Bridging-Header.h";
 			};
 			name = Release;

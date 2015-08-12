@@ -9,13 +9,11 @@
 import UIKit
 import Parse
 
-class CustomSignupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    var grade = ["9th grade", "10th grade", "11th grade", "12th grade"]
+class CustomSignupViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var myPicker: UIPickerView!
-    var chosenGrade: String = ""
+
     
     
     var actInd: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
@@ -30,8 +28,6 @@ class CustomSignupViewController: UIViewController, UIPickerViewDelegate, UIPick
         view.addSubview(self.actInd)
         usernameField.delegate = self
         passwordField.delegate = self
-        myPicker.delegate = self
-        myPicker.dataSource = self
         
     }
     
@@ -56,8 +52,7 @@ class CustomSignupViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBAction func signUpAction(sender: AnyObject) {
         var username = self.usernameField.text
         var password = self.passwordField.text
-        var chosenGrade = grade[myPicker.selectedRowInComponent(0)]
-        
+    
         
         if count(self.usernameField.text) < 4 || count(self.passwordField.text) < 5 {
             
@@ -72,12 +67,10 @@ class CustomSignupViewController: UIViewController, UIPickerViewDelegate, UIPick
             
             println(username)
             println(password)
-            println(chosenGrade)
             
             var newUser = PFUser()
             newUser.username = username
             newUser.password = password
-            newUser.setObject(chosenGrade, forKey: "grade")
             
             newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
                 
@@ -119,13 +112,6 @@ class CustomSignupViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     // returns the # of rows in each component..
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return grade.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return grade[row]
-    }
     
     func checkIsUserExists(username: String, completion: ((isUser: Bool?) -> Void)!) {
         

@@ -66,6 +66,9 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         postView.delegate = self
         postView.becomeFirstResponder()
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
     }
     
 //    override func viewWillAppear(animated: Bool) {
@@ -90,6 +93,12 @@ class NewPostViewController: UIViewController, UITextViewDelegate {
         post.save()
         post.uploadPost()
     }
+    
+    func DismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    
     
 
     override func didReceiveMemoryWarning() {

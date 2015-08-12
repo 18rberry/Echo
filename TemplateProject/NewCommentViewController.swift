@@ -53,6 +53,9 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         commentView.delegate = self
         commentView.becomeFirstResponder()
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+    
 
         // Do any additional setup after loading the view.
     }
@@ -72,6 +75,11 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func createReply(){
         reply.replyContent = commentView.text
         reply.date = NSDate()
@@ -80,6 +88,10 @@ class NewCommentViewController: UIViewController, UITextViewDelegate {
         
         reply.save()
         reply.uploadReply()
+    }
+    
+    func DismissKeyboard() {
+        view.endEditing(true)
     }
 
     
